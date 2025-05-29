@@ -58,7 +58,10 @@ def main():
     y, sr = librosa.load(file)
 
     # compute chromagram (energy in each pitch class at each frame of the audio)
-    chromagram = librosa.feature.chroma_stft(y=y, sr=sr)
+    #chromagram = librosa.feature.chroma_stft(y=y, sr=sr)
+
+    # compute chromagram using constant q transform
+    chromagram = librosa.feature.chroma_cqt(y=y, sr=sr)
 
     # sum the energy across all the frames
     # this gives us energy in each pitch class over the entire song
